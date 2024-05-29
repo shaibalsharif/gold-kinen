@@ -57,7 +57,7 @@ const PostCard = ({ dataItem, id, commentCount, expanded, setExpanded }) => {
             style={{
                 'box-shadow': 'rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px'
             }}
-            className='h-fit bg-plain rounded-lg px-2 text-start w-full  py-8 text-black text-lg space-y-2 border-b-2 last:border-none'>
+            className='h-fit bg-plain rounded-lg px-2 text-start w-full  py-8 text-black text-lg space-y-2 border-b-2 last:border-none !z-20'>
             <h2 className='text-dark capitalize font-barlow text-xl font-semibold '>{dataItem?.title}</h2>
             <p className='text-dark  text-sm font-light font-sans pt-2'><span className='uppercase text-3xl pl-3 font-normal'>{dataItem?.body[0]}</span>{dataItem?.body.slice(1)}</p>
             <div className='flex gap-2 p-0'>
@@ -70,11 +70,11 @@ const PostCard = ({ dataItem, id, commentCount, expanded, setExpanded }) => {
             <div className='py-2'>
                 <div className='h-[1px] mx-auto bg-gray-500 w-[70%] '></div>
             </div>
-            <div className='pl-[10%] flex flex-col justify-center items-center w-full gap-2'>
+            <div className='  flex flex-col justify-center items-center w-full gap-2'>
                 <StatusPanel expanded={expanded == dataItem?.id} commentCount={comments?.length} handleComment={handleCommentToggle} toggleButtonRef={toggleButtonRef} />
                 <CSSTransition
                     in={expanded == dataItem?.id}
-                    timeout={300}
+                    timeout={400}
                     classNames="fade"
                     unmountOnExit
                 >

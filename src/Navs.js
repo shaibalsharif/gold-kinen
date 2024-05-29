@@ -10,7 +10,7 @@ const Navs = () => {
 
     }
     return (
-        <div className='sticky top-0 bg-opacity-70 bg-plain w-full h-14 shadow-lg bg-transparent py-2 px-4'>
+        <div className='sticky top-0 bg-opacity-85 bg-plain w-full h-14 shadow-lg py-2 px-4 z-30'>
             <div className='h-full w-full flex justify-between items-center'>
                 <NotesRoundedIcon  fontSize='large'/>
                 {isToggleOn ? <ToggleOnIcon fontSize='large' onClick={handleToggle} /> : <ToggleOffIcon fontSize='large' onClick={handleToggle} />}

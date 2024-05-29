@@ -16,7 +16,7 @@ const generateRandomNumber = () => {
 }
 
 
-const StatusPanel = ({ handleComment, commentCount, expanded,toggleButtonRef }) => {
+const StatusPanel = ({ handleComment, commentCount, expanded, toggleButtonRef }) => {
 
     const [counts, setCounts] = useState({
         like: generateRandomNumber(),
@@ -52,29 +52,29 @@ const StatusPanel = ({ handleComment, commentCount, expanded,toggleButtonRef }) 
     }
 
     return (
-        <div ref={toggleButtonRef} className=' flex items-center  justify-centerw-full h-6 gap-4 '>
-            <div onClick={(e) => handleFilling(e, 'like')} className='text-xs px-2 flex items-center gap-2  rounded-l-full rounded-r-full border-2 -bg-gradient-to-r from-gray-600 via-gray-500 to-gray-400'>
-                {filled.like ? <LikeFilled className='text-xs ' /> : <LikeOutLine className='text-xs ' /* fontSize='small' */ />}
+        <div ref={toggleButtonRef} className=' flex items-center  justify-centerw-full h-6 gap-2 '>
+            <div onClick={(e) => handleFilling(e, 'like')} className='text-xs px-2 flex items-center gap-1  rounded-l-full rounded-r-full /*border-2*/ -bg-gradient-to-r from-gray-600 via-gray-500 to-gray-400'>
+                {filled.like ? <LikeFilled className='text-md cursor-pointer ' /> : <LikeOutLine className='text-md cursor-pointer ' /* fontSize='small' */ />}
 
-                <p>{counts.like}</p>
+                <p>Liked {counts.like}</p>
             </div>
-            <div onClick={(e) => handleFilling(e, 'love')} className='text-xs px-2  flex items-center gap-2  rounded-l-full rounded-r-full border-2 -bg-gradient-to-r from-gray-600 via-gray-500 to-gray-400'>
-                {filled.love ? <LoveOutLine className='text-xs' /> : <LoveFilled className='text-xs' />}
+            {/* <div onClick={(e) => handleFilling(e, 'love')} className='text-xs px-2  flex items-center gap-1  rounded-l-full rounded-r-full -bg-gradient-to-r from-gray-600 via-gray-500 to-gray-400'>
+                {filled.love ? <LoveOutLine className='text-md cursor-pointer' /> : <LoveFilled className='text-md cursor-pointer' />}
 
 
-                <p>{counts.love}</p>
-            </div>
-            <div onClick={(e) => handleFilling(e, 'seen')} className='text-xs px-2  flex items-center gap-2  rounded-l-full rounded-r-full border-2 -bg-gradient-to-r from-gray-600 via-gray-500 to-gray-400'>
+                <p>Loved {counts.love}</p>
+            </div> */}
+            <div onClick={(e) => handleFilling(e, 'seen')} className='text-xs px-2  flex items-center gap-1  rounded-l-full rounded-r-full /*border-2*/ -bg-gradient-to-r from-gray-600 via-gray-500 to-gray-400'>
 
-                <DoneAllIcon className='text-xs' /* fontSize='small' */ />
-                <p>{counts.view}</p>
+                <DoneAllIcon className='text-md cursor-pointer' /* fontSize='small' */ />
+                <p>Viewed {counts.view}</p>
             </div>
             <div onClick={handleComment}
-                className='text-xs px-2  flex items-center gap-2  rounded-l-full rounded-r-full border-2 -bg-gradient-to-r from-gray-600 via-gray-500 to-gray-400'>
+                className=' text-xs px-2  flex items-center gap-2  rounded-l-full rounded-r-full /*border-2*/ -bg-gradient-to-r from-gray-600 via-gray-500 to-gray-400'>
 
-                {expanded ? <ChatBubbleIcon className='text-xs' /> : <ChatBubbleOutlineIcon className='text-xs' /* fontSize='small' */ />}
+                {expanded ? <ChatBubbleIcon className='text-md cursor-pointer' /> : <ChatBubbleOutlineIcon className='text-md cursor-pointer' /* fontSize='small' */ />}
 
-                <p>{commentCount || 0}</p>
+                <p>Comments {commentCount || 0}</p>
             </div>
 
         </div>
