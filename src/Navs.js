@@ -6,9 +6,11 @@ const Navs = () => {
     const [isToggleOn, setIsToggleOn] = useState(false)
     const handleToggle = e => {
         setIsToggleOn(!isToggleOn)
+        document.body.classList.toggle("dark");
+
     }
     return (
-        <div className='sticky top-0 bg-opacity-70 bg-white w-full h-8 bg-transparent py-2 px-4'>
+        <div className='sticky top-0 bg-opacity-70 bg-plain w-full h-14 shadow-lg bg-transparent py-2 px-4'>
             <div className='h-full w-full flex justify-between items-center'>
                 <NotesRoundedIcon  fontSize='large'/>
                 {isToggleOn ? <ToggleOnIcon fontSize='large' onClick={handleToggle} /> : <ToggleOffIcon fontSize='large' onClick={handleToggle} />}
