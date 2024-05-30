@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react';
-import CommentBox from './CommentBox';
+import CommentBox from '..//Components/CommentBox';
 import StatusPanel from './StatusPanel';
 import { CSSTransition } from 'react-transition-group';
 // import './animations.css'; // Import your CSS file for animations
@@ -54,12 +54,10 @@ const PostCard = ({ dataItem, id, commentCount, expanded, setExpanded }) => {
 
     return (
         <div
-            style={{
-                'box-shadow': 'rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px'
-            }}
-            className='h-fit bg-plain rounded-lg px-2 text-start w-full  py-8 text-black text-lg space-y-2 border-b-2 last:border-none !z-20'>
-            <h2 className='text-dark capitalize font-barlow text-xl font-semibold '>{dataItem?.title}</h2>
-            <p className='text-dark  text-sm font-light font-sans pt-2'><span className='uppercase text-3xl pl-3 font-normal'>{dataItem?.body[0]}</span>{dataItem?.body.slice(1)}</p>
+            
+            className='shadow-light_ dark:shadow-dark_ h-fit bg-plain dark:bg-dark rounded-lg px-2 text-start w-full  py-8 text-black dark:text-light text-lg space-y-2  last:border-none !z-20'>
+            <h2 className='text-dark dark:text-light capitalize font-barlow text-xl font-semibold '>{dataItem?.title}</h2>
+            <p className='text-dark dark:text-light text-sm font-light font-sans pt-2'><span className='uppercase text-3xl pl-3 font-normal'>{dataItem?.body[0]}</span>{dataItem?.body.slice(1)}</p>
             <div className='flex gap-2 p-0'>
                 <div className='w-9 h-9 border-2 rounded-xl bg-gray-400 bg-opacity-60'></div>
                 <div className=''>

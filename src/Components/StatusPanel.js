@@ -52,7 +52,7 @@ const StatusPanel = ({ handleComment, commentCount, expanded, toggleButtonRef })
     }
 
     return (
-        <div ref={toggleButtonRef} className=' flex items-center  justify-centerw-full h-6 gap-2 '>
+        <div ref={toggleButtonRef} className=' md:justify-start flex items-center  justify-center w-full h-6 gap-2 '>
             <div onClick={(e) => handleFilling(e, 'like')} className='text-xs px-2 flex items-center gap-1  rounded-l-full rounded-r-full /*border-2*/ -bg-gradient-to-r from-gray-600 via-gray-500 to-gray-400'>
                 {filled.like ? <LikeFilled className='text-md cursor-pointer ' /> : <LikeOutLine className='text-md cursor-pointer ' /* fontSize='small' */ />}
 

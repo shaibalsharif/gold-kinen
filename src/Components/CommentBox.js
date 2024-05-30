@@ -2,6 +2,9 @@ import { Avatar } from '@mui/material'
 import React from 'react'
 
 const CommentBox = ({ comments, expanded }) => {
+
+
+    
     return (
         <div className='font-light text-xs space-y-1 pb-3 w-full py-4'>
             {comments?.map(item => {

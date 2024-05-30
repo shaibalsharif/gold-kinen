@@ -1,9 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
-import TimeLine from './TimeLine.js'
-import Navs from './Navs.js'
-import Tags from './Tags.js'
-import BgAnimation from './BgAnimation.js'
+import '..//Styles/App.css';
+import TimeLine from '../Components/TimeLine.js'
+import Header from '../Components/Header.js'
+import Tags from '../Components/Tags.js'
+import BgAnimation from '../Components/BgAnimation.js'
 
 function App() {
   return (
@@ -11,10 +10,10 @@ function App() {
       <div className='fixed top-0 bottom-0 left-0  w-full -z-30'>
         <BgAnimation />
       </div>
-      <Navs />
+      <Header />
       <Tags size={'big'} />
       <TimeLine />
-      
+
     </div>
   );
 }

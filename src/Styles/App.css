@@ -4,7 +4,7 @@
   position: relative ;
   height: 100vh;
   overflow-y: scroll;
-  @apply bg-light bg-opacity-65 dark:bg-blue-900 min-h-screen
+  @apply bg-light dark:bg-gray-500 bg-opacity-65 dark:bg-opacity-65 min-h-screen
 }
 
 /* animations.css */

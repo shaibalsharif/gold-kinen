@@ -1,21 +1,17 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import CardComponent from './Card'
 import PostCard from './PostCard.js'
-
-import { Grid } from '@mui/material'
 import Tags from './Tags.js'
 
 const PAGE_SIZE = 10;
+
 const TimeLine = () => {
 
     const [data, setData] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
-
     const [expanded, setExpanded] = useState(false);
 
     const pageChange = (e) => {
-
         currentPage * PAGE_SIZE !== data?.length && setCurrentPage(currentPage + 1)
     }
 
@@ -37,7 +33,6 @@ const TimeLine = () => {
 
     return (
         <div className='px-4 md:px-[10%] lg:px-[20%] xl:[25%] ' style={{}}>
-
             <div className='z-10 '>
                 <div className='flex gap-2  '>
                     < Tags size='small' />
