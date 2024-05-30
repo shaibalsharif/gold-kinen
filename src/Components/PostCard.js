@@ -3,33 +3,31 @@ import React, { useEffect, useRef, useState } from 'react';
 import CommentBox from '..//Components/CommentBox';
 import StatusPanel from './StatusPanel';
 import { CSSTransition } from 'react-transition-group';
-// import './animations.css'; // Import your CSS file for animations
+import { fetchComments, fetchUser } from '../Utils/helper';
+
 
 const PostCard = ({ dataItem, id, commentCount, expanded, setExpanded }) => {
-    const [user, setuser] = useState(null);
+    const [user, setUser] = useState(null);
     const [comments, setComments] = useState(null);
     const toggleButtonRef = useRef(null);
 
     useEffect(() => {
-        try {
-            dataItem?.userId && axios.get(`https://jsonplaceholder.typicode.com/users/${dataItem?.userId}`)
-                .then(res => {
-                    setuser(res.data);
-                })
-                .catch(e => {
-                    console.log(e);
-                });
+        const fetchData = async () => {
+            try {
+                if (dataItem?.id && dataItem?.userId) {
+                    const fetchedUser = await fetchUser(dataItem.userId);
+                    setUser(fetchedUser);
+                }
 
-            dataItem?.id && axios.get(`https://jsonplaceholder.typicode.com/comments?postId=${dataItem?.id}`)
-                .then(res => {
-                    setComments(res.data);
-                })
-                .catch(e => {
-                    console.log(e);
-                });
-        } catch (error) {
-            console.log(error);
-        }
+                if (dataItem?.id) {
+                    const fetchedComments = await fetchComments(dataItem.id);
+                    setComments(fetchedComments);
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+        fetchData();
     }, [dataItem]);
 
     const handleCommentToggle = (e) => {
@@ -54,7 +52,7 @@ const PostCard = ({ dataItem, id, commentCount, expanded, setExpanded }) => {
 
     return (
         <div
-            
+
             className='shadow-light_ dark:shadow-dark_ h-fit bg-plain dark:bg-dark rounded-lg px-2 text-start w-full  py-8 text-black dark:text-light text-lg space-y-2  last:border-none !z-20'>
             <h2 className='text-dark dark:text-light capitalize font-barlow text-xl font-semibold '>{dataItem?.title}</h2>
             <p className='text-dark dark:text-light text-sm font-light font-sans pt-2'><span className='uppercase text-3xl pl-3 font-normal'>{dataItem?.body[0]}</span>{dataItem?.body.slice(1)}</p>

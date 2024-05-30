@@ -2,10 +2,6 @@ import React from 'react'
 import '..//Styles/animation.css'
 const BgAnimation = () => {
 
-    // #0D3444
-    // #3F3E65
-    // #51423E
-    // #594636
     return (
             <svg preserveAspectRatio="xMidYMid slice" viewBox="10 10 80 80">
                 <path   fill="#9b5de5" className="out-top fill-[#9b5de5] dark:fill-[#594636]" d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z" />

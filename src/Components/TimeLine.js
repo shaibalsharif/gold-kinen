@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import PostCard from './PostCard.js'
 import Tags from './Tags.js'
+import { fetchPosts } from '../Utils/helper.js';
 
 const PAGE_SIZE = 10;
 
@@ -16,20 +17,17 @@ const TimeLine = () => {
     }
 
     useEffect(() => {
-        try {
-            axios.get(`https://jsonplaceholder.typicode.com/posts`).then(res => {
-                const inter_data = res.data?.sort((item_1, item_2) => item_2?.id - item_1?.id)
-                setData(inter_data);
-            })
-                .catch(e => {
-                    console.log(e);
-                })
-        } catch (error) {
-            console.log(error);
-        }
+        const loadPosts = async () => {
+            try {
+                const posts = await fetchPosts();
+                setData(posts);
+            } catch (error) {
+                console.error('Error loading posts:', error);
+            }
+        };
 
+        loadPosts();
     }, [currentPage])
-
 
     return (
         <div className='px-4 md:px-[10%] lg:px-[20%] xl:[25%] ' style={{}}>

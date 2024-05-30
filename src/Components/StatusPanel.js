@@ -1,11 +1,6 @@
 import React, { useState } from 'react'
 import LikeOutLine from '@mui/icons-material/ThumbUpOffAlt';
 import LikeFilled from '@material-ui/icons/ThumbUp';
-
-import LoveOutLine from '@mui/icons-material/FavoriteBorder';
-import LoveFilled from '@material-ui/icons/Favorite';
-
-
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import ChatBubbleIcon from '@material-ui/icons/ChatBubble';
@@ -58,12 +53,7 @@ const StatusPanel = ({ handleComment, commentCount, expanded, toggleButtonRef })
 
                 <p>Liked {counts.like}</p>
             </div>
-            {/* <div onClick={(e) => handleFilling(e, 'love')} className='text-xs px-2  flex items-center gap-1  rounded-l-full rounded-r-full -bg-gradient-to-r from-gray-600 via-gray-500 to-gray-400'>
-                {filled.love ? <LoveOutLine className='text-md cursor-pointer' /> : <LoveFilled className='text-md cursor-pointer' />}
 
-
-                <p>Loved {counts.love}</p>
-            </div> */}
             <div onClick={(e) => handleFilling(e, 'seen')} className='text-xs px-2  flex items-center gap-1  rounded-l-full rounded-r-full /*border-2*/ -bg-gradient-to-r from-gray-600 via-gray-500 to-gray-400'>
 
                 <DoneAllIcon className='text-md cursor-pointer' /* fontSize='small' */ />
